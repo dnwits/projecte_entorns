@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant Usuari
+  participant Client
+  participant Flask
+  participant DB
+
+  Usuari->>Client: Introdueix email/contrasenya
+  Client->>Flask: POST /login
+  Flask->>DB: Consulta email i contrasenya
+  DB-->>Flask: Retorna dades usuari
+  Flask-->>Client: Retorna token JWT
+  Client-->>Usuari: Accés permès
