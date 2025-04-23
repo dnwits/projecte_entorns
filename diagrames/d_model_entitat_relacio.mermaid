@@ -1,0 +1,35 @@
+erDiagram
+    USUARI ||--o{ ENTRADA : fa
+    PELICULA ||--o{ SESSIO : projecta
+    SESSIO ||--o{ ENTRADA : conté
+
+    USUARI {
+        int id PK
+        string nom
+        string email
+        string contrasenya
+        string rol
+    }
+
+    PELICULA {
+        int id PK
+        string titol
+        int duracio
+        string descripcio
+        string cartell
+    }
+
+    SESSIO {
+        int id PK
+        datetime dataHora
+        string sala
+        int pelicula_id FK
+    }
+
+    ENTRADA {
+        int id PK
+        string seient
+        float preu
+        int sessio_id FK
+        int usuari_id FK
+    }
