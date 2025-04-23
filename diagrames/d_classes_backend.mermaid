@@ -1,0 +1,35 @@
+classDiagram
+  class Usuari {
+    int id
+    string nom
+    string email
+    string contrasenya
+    string rol
+  }
+
+  class Pelicula {
+    int id
+    string titol
+    int duracio
+    string descripcio
+    string cartell
+  }
+
+  class Sessio {
+    int id
+    datetime dataHora
+    string sala
+    int pelicula_id
+  }
+
+  class Entrada {
+    int id
+    string seient
+    float preu
+    int sessio_id
+    int usuari_id
+  }
+
+  Usuari <|-- Entrada
+  Sessio <|-- Entrada
+  Pelicula <|-- Sessio
