@@ -6,12 +6,11 @@ flowchart TD
         C_Model --> |Dades processades| CLI
     end
 
-
     subgraph Server [Servidor]
-        C_DAO --> |HTTP Request (GET/POST)| API[Webservice Flask]
+        C_DAO --> |HTTP Request | API[Webservice Flask]
         API --> S_Model[Server Model<br>Lògica de negoci]
         S_Model --> S_DAO[Server DAO<br>Accés a dades]
-        S_DAO --> DB[Base de Dades<br>MySQL (phpMyAdmin)]
+        S_DAO --> DB[Base de Dades<br>MySQL ]
         DB --> S_DAO
         S_DAO --> S_Model
         S_Model --> API
