@@ -8,3 +8,24 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 - Autenticació: JSON Web Tokens (JWT)
 - Control de versions: Git + GitHub
 - Testing: PyTest
+
+## Model E/R
+[Model E/R](diagrames/d_model_entitat_relacio.mermaid)
+
+## BBDD Mysql
+[BBDD Mysql](cinema.sql)
+
+## Diagrama d'arquitectura Client / Servidor
+[Diagrama d'arquitectura Client / Servidor](diagrames/d_arquitectura_client_server.mermaid)
+
+## Descripció dels End-points del WebService
+[Descripció dels End-points del WebService](documentacio/end-points_desc.mde)
+
+## Diagrama de classes del Backend
+[Diagrama de classes del Backend](diagrames/d_classes_backend.mermaid)
+
+## Diagrama de seqüència del Login
+[Diagrama de seqüència del Login](diagrames/d_secuencia_login.mermaid)
+
+## Wireframes del Login i les següents pantalles(CAL FER)
+[Wireframes del Login i les següents pantalles (mínim 1)]()
