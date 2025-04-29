@@ -46,7 +46,6 @@ CREATE TABLE `pelicula` (
   `titol` varchar(255) DEFAULT NULL,
   `duracio` int(11) DEFAULT NULL,
   `descripcio` text DEFAULT NULL,
-  `cartell` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
