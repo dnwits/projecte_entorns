@@ -15,7 +15,7 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 ## BBDD Mysql
 [BBDD Mysql](cinema.sql)
 
-## Diagrama d'arquitectura Client / Servidor
+## Diagrama d'arquitectura Client / Servidor (ELIMINAR 1 DUPLICAT)
 [Diagrama d'arquitectura Client / Servidor](diagrames/d_arquitectura_client_server.mermaid)
 
 ## Descripció dels End-points del WebService
