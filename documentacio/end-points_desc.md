@@ -55,8 +55,7 @@
         {
         "id": 1,
         "titol": "Avatar",
-        "duracio": 162,
-        "cartell": "/cartells/avatar.jpg"
+        "duracio": 162
         }
     ]
     ```
@@ -70,15 +69,13 @@
         "id": 15,
         "data": "2023-05-20",
         "hora": "18:30",
-        "sala": 3,
-        "placesDisponibles": 45
+        "sala": 3
         },
         {
         "id": 16,
         "data": "2023-05-20",
         "hora": "22:15",
-        "sala": 3,
-        "placesDisponibles": 12
+        "sala": 3
         }
     ]
     ```
@@ -91,20 +88,19 @@
 - Request Body:
     ```
     {
-    "id_sessio": 15,
-    "seient": "A12",
-    "preu": 9.50
+    "id_sessio": 1,
+    "seient": "A1",
+    "preu": 8.50
     }
     ```
 - Resposta Exitosa (201 Created):
     ```
     {
     "id": 456,
-    "id_usuari": 123,
+    "id_usuari": 1,
     "id_sessio": 15,
-    "seient": "A12",
-    "preu": 9.50,
-    "data_compra": "2023-05-19T14:30:00Z"
+    "seient": "A1",
+    "preu": 8.50
     }
     ```
 - Errors:
@@ -120,7 +116,6 @@
     "sessio": "2023-05-20T18:30:00",
     "sala": "Sala 3",
     "seient": "A12",
-    "preu": 9.50,
-    "data_compra": "2023-05-19T14:30:00Z"
+    "preu": 9.50
     }
     ```
