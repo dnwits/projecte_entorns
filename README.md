@@ -17,10 +17,10 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Inserts BBDD](inserts.sql)
 
 ## Diagrama d'arquitectura Client / Servidor
-[Diagrama d'arquitectura Client / Servidor](diagrames/d_arquitectura_client_server.mermaid)
+[Diagrama d'arquitectura Client / Servidor](diagrames/d_arquitectura_cliente_server.mermaid)
 
 ## Descripció dels End-points del WebService
-[Descripció dels End-points del WebService](documentacio/end-points_desc.mde)
+[Descripció dels End-points del WebService](documentacio/end-points_desc.md)
 
 ## Diagrama de classes del Backend
 [Diagrama de classes del Backend](diagrames/d_classes_backend.mermaid)
@@ -29,4 +29,4 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Diagrama de seqüència del Login](diagrames/d_secuencia_login.mermaid)
 
 ## Wireframes del Login i les següents pantalles(CAL FER)
-[Wireframes del Login i les següents pantalles (mínim 1)]()
+[Wireframes del Login i les següents pantalles (mínim 1)](documentacio/cas_dus.md)
