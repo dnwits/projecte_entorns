@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-04-2025 a las 13:55:36
+-- Tiempo de generación: 30-04-2025 a las 13:17:56
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -35,6 +35,16 @@ CREATE TABLE `entrada` (
   `preu` decimal(5,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `entrada`
+--
+
+INSERT INTO `entrada` (`id`, `id_usuari`, `id_sessio`, `seient`, `preu`) VALUES
+(1, 1, 1, 'A1', 8.50),
+(2, 1, 3, 'B3', 9.00),
+(3, 2, 2, 'C5', 8.50),
+(4, 3, 4, 'D2', 9.50);
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +55,17 @@ CREATE TABLE `pelicula` (
   `id` int(11) NOT NULL,
   `titol` varchar(255) DEFAULT NULL,
   `duracio` int(11) DEFAULT NULL,
-  `descripcio` text DEFAULT NULL,
+  `descripcio` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `pelicula`
+--
+
+INSERT INTO `pelicula` (`id`, `titol`, `duracio`, `descripcio`) VALUES
+(1, 'Matrix', 136, 'Un hacker descobreix la veritat sobre la seva realitat.'),
+(2, 'Avatar', 162, 'Una aventura èpica al planeta Pandora.'),
+(3, 'El Señor de los Anillos', 178, 'Un viatge per destruir un anell poderós.');
 
 -- --------------------------------------------------------
 
@@ -61,6 +80,16 @@ CREATE TABLE `sessio` (
   `sala` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `sessio`
+--
+
+INSERT INTO `sessio` (`id`, `id_pelicula`, `data_hora`, `sala`) VALUES
+(1, 1, '2025-05-01 18:00:00', 'Sala 1'),
+(2, 1, '2025-05-02 20:30:00', 'Sala 2'),
+(3, 2, '2025-05-01 17:00:00', 'Sala 3'),
+(4, 3, '2025-05-03 19:00:00', 'Sala 1');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +103,15 @@ CREATE TABLE `usuari` (
   `contrasenya` varchar(255) DEFAULT NULL,
   `rol` enum('usuari','admin') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuari`
+--
+
+INSERT INTO `usuari` (`id`, `nom`, `email`, `contrasenya`, `rol`) VALUES
+(1, 'Anna Pérez', 'anna@example.com', '1234abcd', 'usuari'),
+(2, 'Valery Escobar', 'valery@example.com', 'abcd1234', 'usuari'),
+(3, 'Admin Root', 'admin@example.com', 'adminpass', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -115,25 +153,25 @@ ALTER TABLE `usuari`
 -- AUTO_INCREMENT de la tabla `entrada`
 --
 ALTER TABLE `entrada`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `pelicula`
 --
 ALTER TABLE `pelicula`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `sessio`
 --
 ALTER TABLE `sessio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuari`
 --
 ALTER TABLE `usuari`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
