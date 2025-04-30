@@ -13,7 +13,7 @@ def list_users():
     cursor = connection.cursor(dictionary=True)
 
     try:
-        query = "SELECT * FROM usuari"
+        query = "SELECT * FROM Usuari"
         cursor.execute(query)
         users = cursor.fetchall()
 
