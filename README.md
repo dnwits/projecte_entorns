@@ -29,11 +29,11 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Diagrama de seqüència del Login](diagrames/d_secuencia_login.mermaid)
 
 ## Wireframes del Login i les següents pantalles
-[Wireframes general del servei](diagrames/d_wireframe_general.mermaid) <br>
-[Wireframes Login](diagrames/d_wireframe_login.mermaid) <br>
-[Wireframes Pantalla principal](diagrames/d_wireframe_pprincipal.mermaid)
+[Wireframe general del servei](diagrames/d_wireframe_general.mermaid) <br>
+[Wireframe Login](diagrames/d_wireframe_login.mermaid) <br>
+[Wireframe Pantalla principal](diagrames/d_wireframe_pprincipal.mermaid)
 
 
 
 ## Cas d'ús detallat a escollir
-[Cas d'us de Login](documentacio/cas_dus.md)
+[Cas d'ús de Login](documentacio/cas_dus.md)
