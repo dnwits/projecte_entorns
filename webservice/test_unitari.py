@@ -1,4 +1,3 @@
-# test_server.py
 import unittest
 from server import app
 
@@ -12,8 +11,8 @@ class TestEndpoints(unittest.TestCase):
     def test_login_correcte(self):
         # Substitueix per un usuari REAL que tinguis a la base de dades
         dades = {
-            "email": "prova@example.com",
-            "password": "1234"  # contrasenya tal com guardada (sense hash)
+            "email": "valery@example.com",
+            "password": "abcd1234"  # contrasenya tal com guardada (sense hash)
         }
         resposta = self.app.post('/login', json=dades)
         self.assertEqual(resposta.status_code, 200)
