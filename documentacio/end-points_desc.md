@@ -12,7 +12,6 @@
 - Resposta Exitosa (200 OK):
     ```
     {
-    "token": "eyJhbGci...",
     "usuari": {
         "id": 123,
         "nom": "Nom Usuari",
@@ -84,7 +83,6 @@
 
 ## Gestió d'Entrades
 ### POST /entrades/reservar → Realitza una reserva d'entrades.
-- Headers:Authorization: Bearer <token>
 - Request Body:
     ```
     {
