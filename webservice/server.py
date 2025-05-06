@@ -36,7 +36,7 @@ class DAOPelicula:
         connection = mysql.connector.connect(**DB_CONFIG)
         cursor = connection.cursor(dictionary=True)
         try:
-            query = "SELECT * FROM Pelicules"
+            query = "SELECT * FROM Pelicula"
             cursor.execute(query)
             movies = cursor.fetchall()
             return movies
