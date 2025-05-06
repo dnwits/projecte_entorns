@@ -15,14 +15,15 @@ DB_CONFIG = {
 # DAO Classes
 class DAOUsuari:
     @staticmethod
-    def validate_user(identifier, password): #Valida un usuari pel seu email o nom d'usuari i contrasenya.
+    def validate_user(email, password):  # Valida un usuari pel seu email i contrasenya.
         connection = mysql.connector.connect(**DB_CONFIG)
         cursor = connection.cursor(dictionary=True)
         try:
             query = "SELECT * FROM Usuari WHERE email = %s"
-            cursor.execute(query, (identifier,))
+            cursor.execute(query, (email,))
             user = cursor.fetchone()
-            if user and check_password_hash(user['contrasenya'], password):
+            # Comparar directament la contrasenya en text pla
+            if user and user['contrasenya'] == password:
                 return user
             return None
         finally:
