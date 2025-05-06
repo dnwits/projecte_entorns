@@ -1,93 +1,76 @@
-# from flask import Flask, request, jsonify
-# from flask_sqlalchemy import SQLAlchemy
-# from flask_jwt_extended import JWTManager, create_access_token
-# from werkzeug.security import check_password_hash
+from flask import Flask, request, jsonify
+import mysql.connector
+from werkzeug.security import check_password_hash
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
-# # Configuració de la base de dades
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/cinema'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# app.config['JWT_SECRET_KEY'] = 'secret-key'  # Canvia-ho per una clau segura
-# db = SQLAlchemy(app)
-# jwt = JWTManager(app)
+# Configuració de la base de dades
+DB_CONFIG = {
+    "host": "localhost",
+    "user": "root",
+    "password": "root",
+    "database": "cinema"
+}
 
-# # Models
-# class Usuari(db.Model):
-#     __tablename__ = 'usuaris'
-#     id = db.Column(db.Integer, primary_key=True)
-#     nom = db.Column(db.String(100), nullable=False)
-#     email = db.Column(db.String(100), unique=True, nullable=False)
-#     contrasenya = db.Column(db.String(200), nullable=False)
-#     rol = db.Column(db.String(50), nullable=False)
+# DAO Classes
+class DAOUsuari:
+    @staticmethod
+    def validate_user(identifier, password): #Valida un usuari pel seu email o nom d'usuari i contrasenya.
+        connection = mysql.connector.connect(**DB_CONFIG)
+        cursor = connection.cursor(dictionary=True)
+        try:
+            query = "SELECT * FROM Usuari WHERE email = %s"
+            cursor.execute(query, (identifier,))
+            user = cursor.fetchone()
+            if user and check_password_hash(user['contrasenya'], password):
+                return user
+            return None
+        finally:
+            cursor.close()
+            connection.close()
 
-# class Pelicula(db.Model):
-#     __tablename__ = 'pelicules'
-#     id = db.Column(db.Integer, primary_key=True)
-#     titol = db.Column(db.String(100), nullable=False)
-#     duracio = db.Column(db.Integer, nullable=False)
-#     descripcio = db.Column(db.Text, nullable=False)
+class DAOPelicula:
+    @staticmethod
+    def get_all_movies(): # Retorna totes les pel·lícules de la base de dades.
+        connection = mysql.connector.connect(**DB_CONFIG)
+        cursor = connection.cursor(dictionary=True)
+        try:
+            query = "SELECT * FROM Pelicules"
+            cursor.execute(query)
+            movies = cursor.fetchall()
+            return movies
+        finally:
+            cursor.close()
+            connection.close()
 
-# class Sessio(db.Model):
-#     __tablename__ = 'sessions'
-#     id = db.Column(db.Integer, primary_key=True)
-#     id_pelicula = db.Column(db.Integer, db.ForeignKey('pelicules.id'), nullable=False)
-#     data_hora = db.Column(db.String(100), nullable=False)
-#     sala = db.Column(db.String(50), nullable=False)
+# Endpoints
+@app.route('/login', methods=['POST'])
+def login(): #Endpoint per validar l'usuari.
+    data = request.get_json()
+    identifier = data.get('email')  # email
+    password = data.get('password')
+    dao_user = DAOUsuari()
+    user = dao_user.validate_user(identifier, password)
+    if user:
+        return jsonify({
+            "id": user['id'],
+            "nom": user['nom'],
+            "email": user['email'],
+            "rol": user['rol'],  # Exemple de rol
+            "msg": "Usuari validat correctament",
+            "coderesponse": "1"
+        }), 200
+    else:
+        return jsonify({
+            "coderesponse": "0",
+            "msg": "Credencials incorrectes"
+        }), 400
 
-# class Entrada(db.Model):
-#     __tablename__ = 'entrades'
-#     id = db.Column(db.Integer, primary_key=True)
-#     id_usuari = db.Column(db.Integer, db.ForeignKey('usuaris.id'), nullable=False)
-#     id_sessio = db.Column(db.Integer, db.ForeignKey('sessions.id'), nullable=False)
-#     seient = db.Column(db.String(10), nullable=False)
-#     preu = db.Column(db.Float, nullable=False)
+@app.route('/pelicules', methods=['GET'])
+def llistar_pelicules(): #Endpoint per llistar totes les pel·lícules.
+    dao_pelicula = DAOPelicula()
+    movies = dao_pelicula.get_all_movies()
+    return jsonify(movies), 200
 
-# # DAO
-# class UsuariDAO:
-#     @staticmethod
-#     def obtenir_usuari_per_email(email):
-#         return Usuari.query.filter_by(email=email).first()
-
-# class PeliculaDAO:
-#     @staticmethod
-#     def obtenir_totes_les_pelicules():
-#         return Pelicula.query.all()
-
-# class SessioDAO:
-#     @staticmethod
-#     def obtenir_sessions_per_pelicula(id_pelicula):
-#         return Sessio.query.filter_by(id_pelicula=id_pelicula).all()
-
-# class EntradaDAO:
-#     @staticmethod
-#     def obtenir_entrades_per_usuari(id_usuari):
-#         return Entrada.query.filter_by(id_usuari=id_usuari).all()
-
-# # Endpoints
-# @app.route("/login", methods=["POST"])
-# def login():
-#     data = request.get_json()
-#     email = data.get("email")
-#     contrasenya = data.get("contrasenya")
-
-#     # Obtenir usuari des de la base de dades
-#     usuari = UsuariDAO.obtenir_usuari_per_email(email)
-#     if not usuari or not check_password_hash(usuari.contrasenya, contrasenya):
-#         return jsonify({"error": "Credencials incorrectes"}), 401
-
-#     # Crear token JWT
-#     token = create_access_token(identity=usuari.id)
-#     return jsonify({"token": token, "rol": usuari.rol})
-
-# @app.route("/pelicules", methods=["GET"])
-# def llistar_pelicules():
-#     pelicules = PeliculaDAO.obtenir_totes_les_pelicules()
-#     resultat = [
-#         {"id": pelicula.id, "titol": pelicula.titol, "duracio": pelicula.duracio, "descripcio": pelicula.descripcio}
-#         for pelicula in pelicules
-#     ]
-#     return jsonify(resultat)
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
