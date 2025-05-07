@@ -7,7 +7,7 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 - Base de Dades: MySQL (phpMyAdmin)
 - Autenticació: JSON Web Tokens (JWT)
 - Control de versions: Git + GitHub
-- Testing: PyTest
+- Testing: unittest
 
 ## Model E/R
 [Model E/R](diagrames/d_model_entitat_relacio.mermaid)
@@ -33,7 +33,9 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Wireframe Login](diagrames/d_wireframe_login.mermaid) <br>
 [Wireframe Pantalla principal](diagrames/d_wireframe_pprincipal.mermaid)
 
-
+## Desenvolupament d'una part petita de codi
+[Servidor] ()
+[Client]()
 
 ## Cas d'ús detallat a escollir
 [Cas d'ús de Login](documentacio/cas_dus.md)
