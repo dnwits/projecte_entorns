@@ -2,12 +2,67 @@
 El projecte consisteix en una aplicació que permet als usuaris consultar, reservar i gestionar entrades de cinema. El sistema permet visualitzar la cartellera, seleccionar pel·lícules, escollir seients i fer reserves. El frontend es desenvoluparà per consola.
 
 ## Requeriments Tècnics
-- Interfície: Aplicació per consola (CLI)
-- Backend: Python amb Flask (WebService REST)
-- Base de Dades: MySQL (phpMyAdmin)
-- Autenticació: JSON Web Tokens (JWT)
-- Control de versions: Git + GitHub
-- Testing: unittest
+
+## 1. Backend (Servidor i Gestió de Dades)
+
+El backend serà el cor del sistema, encarregat de gestionar dades, usuaris i la lògica del sistema.
+
+### a. Requisits del servidor
+
+- **Allotjament:** Entorn local (localhost)
+- **Base de dades:** MySQL (phpMyAdmin)
+- **Sistema operatiu del servidor:** Windows/Linux (entorn local)
+- **APIs i serveis web:** RESTFul amb Flask
+
+### b. Llenguatges de programació
+
+- Python
+
+### c. Seguretat
+
+- Autenticació i autorització amb JSON Web Tokens (JWT)
+- Protecció de credencials i dades sensibles
+- Còpies de seguretat manualment a phpMyAdmin (exportacions periòdiques)
+
+## 2. Frontend
+
+### a. Tipus de Clients
+
+- Consola Python (CLI). Escriptori.
+- **Llenguatge de programació:** Python (CLI)
+- **Compatibilitat dispositius:** Ordinador (Windows, Linux, Mac)
+
+## 3. Requisits Generals
+
+### a. Gestió d'usuari i autenticació
+
+- **Rols d’usuari:** Admin, Usuari *(ampliable si calgués)*
+- **Base de dades:** MySQL (phpMyAdmin)
+- **Seguretat:** Autenticació per email i contrasenya, amb gestió de token (JWT)
+
+### b. Emmagatzematge local i sincronització
+
+- **Dades que es guarden en local:** Token JWT, id usuari, email
+- **Seguretat:** Connexió local, validació amb token
+
+### c. Gestió d’accessibilitat
+
+- No aplica per aplicació de consola (CLI)
+
+## 4. Requisits d'Infraestructura
+
+- **Xarxa:** Localhost (127.0.0.1)
+- **Espai d’emmagatzematge al núvol:** No aplica
+- **APIs de tercers:** No es fan servir
+
+## 5. Requisits del Procés de Desenvolupament
+
+- **IDE’s:** Visual Studio Code
+- **Extensions VSCode:** Python, Python Snippets
+- **Control de Versions:** Git, GitHub
+- **Mètode de desenvolupament:** Metodologia àgil (Scrum o Kanban)
+- **Proves de qualitat (QA):** Tests unitaris amb unittest
+
 
 ## Model E/R
 [Model E/R](diagrames/d_model_entitat_relacio.mermaid)
