@@ -5,6 +5,7 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 - Interfície: Aplicació per consola (CLI)
 - Backend: Python amb Flask (WebService REST)
 - Base de Dades: MySQL (phpMyAdmin)
+- Autenticació: JSON Web Tokens (JWT)
 - Control de versions: Git + GitHub
 - Testing: unittest
 

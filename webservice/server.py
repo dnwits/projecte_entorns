@@ -57,7 +57,7 @@ def login(): #Endpoint per validar l'usuari.
             "id": user['id'],
             "nom": user['nom'],
             "email": user['email'],
-            "rol": user['rol'],  # Exemple de rol
+            "rol": user['rol'],  
             "msg": "Usuari validat correctament",
             "coderesponse": "1"
         }), 200
