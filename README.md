@@ -5,7 +5,6 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 - Interfície: Aplicació per consola (CLI)
 - Backend: Python amb Flask (WebService REST)
 - Base de Dades: MySQL (phpMyAdmin)
-- Autenticació: JSON Web Tokens (JWT)
 - Control de versions: Git + GitHub
 - Testing: unittest
 
@@ -34,8 +33,8 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Wireframe Pantalla principal](diagrames/d_wireframe_pprincipal.mermaid)
 
 ## Desenvolupament d'una part petita de codi
-[Servidor] ()
-[Client]()
+[Servidor](webservice/server.py)
+[Client](webservice/clientConsola.py)
 
 ## Cas d'ús detallat a escollir
 [Cas d'ús de Login](documentacio/cas_dus.md)
