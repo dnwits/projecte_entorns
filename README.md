@@ -5,13 +5,11 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 
 ## 1. Backend (Servidor i Gestió de Dades)
 
-El backend serà el cor del sistema, encarregat de gestionar dades, usuaris i la lògica del sistema.
-
 ### a. Requisits del servidor
 
 - **Allotjament:** Entorn local (localhost)
 - **Base de dades:** MySQL (phpMyAdmin)
-- **Sistema operatiu del servidor:** Windows/Linux (entorn local)
+- **Sistema operatiu del servidor:** Linux
 - **APIs i serveis web:** RESTFul amb Flask
 
 ### b. Llenguatges de programació
@@ -22,13 +20,13 @@ El backend serà el cor del sistema, encarregat de gestionar dades, usuaris i la
 
 - Autenticació i autorització amb JSON Web Tokens (JWT)
 - Protecció de credencials i dades sensibles
-- Còpies de seguretat manualment a phpMyAdmin (exportacions periòdiques)
+- Còpies de seguretat a phpMyAdmin (exportacions manual)
 
 ## 2. Frontend
 
 ### a. Tipus de Clients
 
-- Consola Python (CLI). Escriptori.
+- **Consola Python (CLI).** Escriptori.
 - **Llenguatge de programació:** Python (CLI)
 - **Compatibilitat dispositius:** Ordinador (Windows, Linux, Mac)
 
@@ -47,7 +45,7 @@ El backend serà el cor del sistema, encarregat de gestionar dades, usuaris i la
 
 ### c. Gestió d’accessibilitat
 
-- No aplica per aplicació de consola (CLI)
+- No tenim ja que utilitzem cliente per consola (CLI)
 
 ## 4. Requisits d'Infraestructura
 
@@ -57,10 +55,10 @@ El backend serà el cor del sistema, encarregat de gestionar dades, usuaris i la
 
 ## 5. Requisits del Procés de Desenvolupament
 
-- **IDE’s:** Visual Studio Code
+- **IDE’s:** Visual Studio Code, Miniconda3 (python)
 - **Extensions VSCode:** Python, Python Snippets
 - **Control de Versions:** Git, GitHub
-- **Mètode de desenvolupament:** Metodologia àgil (Scrum o Kanban)
+- **Mètode de desenvolupament:** Metodologia àgil (Scrum)
 - **Proves de qualitat (QA):** Tests unitaris amb unittest
 
 
