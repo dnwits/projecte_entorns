@@ -6,13 +6,6 @@ from DAOPelicula import DAOPelicula
 
 app = Flask(__name__)
 
-# Configuració de la base de dades
-DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "root",
-    "database": "cinema"
-}
 
 # DAO Classes
 # class DAOUsuari:
