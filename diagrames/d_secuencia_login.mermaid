@@ -8,5 +8,5 @@ sequenceDiagram
   Client->>Flask: POST /login
   Flask->>DB: Consulta email i contrasenya
   DB-->>Flask: Retorna dades usuari
-  Flask-->>Client: Retorna token JWT
+  Flask-->>Client: Retorna dades usuari
   Client-->>Usuari: Accés permès
