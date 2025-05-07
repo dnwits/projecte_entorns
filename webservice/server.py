@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from werkzeug.security import check_password_hash
+from DAOUsuari import DAOUsuari
+from DAOPelicula import DAOPelicula
 
 app = Flask(__name__)
 
@@ -13,40 +15,40 @@ DB_CONFIG = {
 }
 
 # DAO Classes
-class DAOUsuari:
-    @staticmethod
-    def validate_user(email, password):  # Valida un usuari pel seu email i contrasenya.
-        connection = mysql.connector.connect(**DB_CONFIG)
-        cursor = connection.cursor(dictionary=True)
-        try:
-            query = "SELECT * FROM Usuari WHERE email = %s"
-            cursor.execute(query, (email,))
-            user = cursor.fetchone()
-            # Comparar directament la contrasenya en text pla
-            if user and user['contrasenya'] == password:
-                return user
-            return None
-        finally:
-            cursor.close()
-            connection.close()
+# class DAOUsuari:
+#     @staticmethod
+#     def validate_user(email, password):  # Valida un usuari pel seu email i contrasenya.
+#         connection = mysql.connector.connect(**DB_CONFIG)
+#         cursor = connection.cursor(dictionary=True)
+#         try:
+#             query = "SELECT * FROM Usuari WHERE email = %s"
+#             cursor.execute(query, (email,))
+#             user = cursor.fetchone()
+#             # Comparar directament la contrasenya en text pla
+#             if user and user['contrasenya'] == password:
+#                 return user
+#             return None
+#         finally:
+#             cursor.close()
+#             connection.close()
 
-class DAOPelicula:
-    @staticmethod
-    def get_all_movies(): # Retorna totes les pel·lícules de la base de dades.
-        connection = mysql.connector.connect(**DB_CONFIG)
-        cursor = connection.cursor(dictionary=True)
-        try:
-            query = "SELECT * FROM Pelicula"
-            cursor.execute(query)
-            movies = cursor.fetchall()
-            return movies
-        finally:
-            cursor.close()
-            connection.close()
+# class DAOPelicula:
+#     @staticmethod
+#     def get_all_movies(): # Retorna totes les pel·lícules de la base de dades.
+#         connection = mysql.connector.connect(**DB_CONFIG)
+#         cursor = connection.cursor(dictionary=True)
+#         try:
+#             query = "SELECT * FROM Pelicula"
+#             cursor.execute(query)
+#             movies = cursor.fetchall()
+#             return movies
+#         finally:
+#             cursor.close()
+#             connection.close()
 
 # Endpoints
 @app.route('/login', methods=['POST'])
-def login(): #Endpoint per validar l'usuari.
+def login():  # Endpoint per validar l'usuari.
     data = request.get_json()
     identifier = data.get('email')  # email
     password = data.get('password')
@@ -57,7 +59,7 @@ def login(): #Endpoint per validar l'usuari.
             "id": user['id'],
             "nom": user['nom'],
             "email": user['email'],
-            "rol": user['rol'],  
+            "rol": user['rol'],
             "msg": "Usuari validat correctament",
             "coderesponse": "1"
         }), 200
@@ -68,10 +70,36 @@ def login(): #Endpoint per validar l'usuari.
         }), 400
 
 @app.route('/pelicules', methods=['GET'])
-def llistar_pelicules(): #Endpoint per llistar totes les pel·lícules.
+def llistar_pelicules():  # Endpoint per llistar totes les pel·lícules.
     dao_pelicula = DAOPelicula()
     movies = dao_pelicula.get_all_movies()
     return jsonify(movies), 200
+# def login(): #Endpoint per validar l'usuari.
+#     data = request.get_json()
+#     identifier = data.get('email')  # email
+#     password = data.get('password')
+#     dao_user = DAOUsuari()
+#     user = dao_user.validate_user(identifier, password)
+#     if user:
+#         return jsonify({
+#             "id": user['id'],
+#             "nom": user['nom'],
+#             "email": user['email'],
+#             "rol": user['rol'],  
+#             "msg": "Usuari validat correctament",
+#             "coderesponse": "1"
+#         }), 200
+#     else:
+#         return jsonify({
+#             "coderesponse": "0",
+#             "msg": "Credencials incorrectes"
+#         }), 400
+
+# @app.route('/pelicules', methods=['GET'])
+# def llistar_pelicules(): #Endpoint per llistar totes les pel·lícules.
+#     dao_pelicula = DAOPelicula()
+#     movies = dao_pelicula.get_all_movies()
+#     return jsonify(movies), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
