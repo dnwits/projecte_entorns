@@ -1,8 +1,8 @@
 -- Inserts para Usuari
 INSERT INTO Usuari (nom, email, contrasenya, rol) VALUES
-('Anna Pérez', 'anna@example.com', '1234abcd', 'usuari'),
-('Valery Escobar', 'valery@example.com', 'abcd1234', 'usuari'),
-('Admin Root', 'admin@example.com', 'adminpass', 'admin');
+('Anna Pérez', 'anna@example.com', '1234', 'usuari'),
+('Valery Escobar', 'valery@example.com', '1234', 'usuari'),
+('Admin Root', 'admin@example.com', '1234', 'admin');
 
 -- Inserts para Pelicula
 INSERT INTO Pelicula (titol, duracio, descripcio) VALUES
