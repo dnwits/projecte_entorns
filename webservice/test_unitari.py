@@ -13,7 +13,7 @@ class TestEndpoints(unittest.TestCase):
         # Substitueix per un usuari REAL que tinguis a la base de dades
         dades = {
             "email": "valery@example.com",
-            "password": "abcd1234"  # contrasenya tal com guardada (sense hash)
+            "password": "abcd1234"  # contrasenya tal com guardada (sense hash) abcd1234
         }
         resposta = self.app.post('/login', json=dades)
         self.assertEqual(resposta.status_code, 200)

@@ -14,9 +14,13 @@ class DAOUsuari:
             user = self.cursor.fetchone()
             # Comparar la contrasenya hashada
             if user and user['contrasenya'] == hash_text(password):
+                #print("Contrasenya hashada a la base de dades:", user['contrasenya'])
+                #print("Contrasenya hashada proporcionada:", hash_text(password))
                 return user
+            
             return None
         finally:
+            self.cursor.close()
             self.close_connection()
 
     def register_user(self, nom, email, password, rol):  # Registra un nou usuari.
