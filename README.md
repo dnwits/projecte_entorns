@@ -82,7 +82,7 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Diagrama de seqüència del Login](diagrames/d_secuencia_login.mermaid)
 
 ## Wireframes del Login i les següents pantalles
-![Wireframe general del servei](diagrames/Wireframe%20Gestió%20d'entrades%20de%20cinema.png) <br>
+![Wireframe general del servei](diagrames/gestioentradescinema.png) <br>
 [Wireframe general del servei](diagrames/d_wireframe_general.mermaid) <br>
 [Wireframe Login](diagrames/d_wireframe_login.mermaid) <br>
 [Wireframe Pantalla principal](diagrames/d_wireframe_pprincipal.mermaid)
