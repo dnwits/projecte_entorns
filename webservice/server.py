@@ -19,7 +19,7 @@ def login():  # Endpoint per validar l'usuari.
     user = dao_user.validate_user(email, password)
     if user:
         # Generar token JWT
-        token = create_access_token(identity=user['id'])
+        token = create_access_token(identity=str(user['id']))
         return jsonify({
             "id": user['id'],
             "nom": user['nom'],
