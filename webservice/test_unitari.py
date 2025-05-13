@@ -51,28 +51,6 @@ class TestEndpoints(unittest.TestCase):
             self.assertIn('titol', pelicules[0])
             self.assertIn('duracio', pelicules[0])
 
-    # def test_perfil_correcte(self):
-    #     # Primer, fer login per obtenir el token
-    #     self.test_login_correcte()
-
-    #     # Incloure el token al header
-    #     headers = {
-    #         "Authorization": f"Bearer {self.token}"
-    #     }
-    #     resposta = self.app.get('/perfil', headers=headers)
-    #     self.assertEqual(resposta.status_code, 200)
-    #     resposta_json = resposta.get_json()
-    #     self.assertIn('id', resposta_json)
-    #     self.assertIn('nom', resposta_json)
-    #     self.assertIn('email', resposta_json)
-    #     self.assertIn('rol', resposta_json)
-
-    # def test_perfil_sense_autenticacio(self):
-    #     resposta = self.app.get('/perfil')
-    #     self.assertEqual(resposta.status_code, 401)
-    #     resposta_json = resposta.get_json()
-    #     self.assertIn('msg', resposta_json)
-    #     self.assertEqual(resposta_json['msg'], "Missing Authorization Header")
 
 if __name__ == '__main__':
     unittest.main()
