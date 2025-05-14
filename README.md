@@ -66,8 +66,8 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Model E/R](diagrames/d_model_entitat_relacio.mermaid)
 
 ## BBDD Mysql
-[BBDD Mysql](cinema.sql) <br>
-[Inserts BBDD](inserts.sql)
+[BBDD Mysql](BBDD/cinema.sql) <br>
+[Inserts BBDD](BBDD/inserts.sql)
 
 ## Diagrama d'arquitectura Client / Servidor
 [Diagrama d'arquitectura Client / Servidor](diagrames/d_arquitectura_cliente_server.mermaid)
