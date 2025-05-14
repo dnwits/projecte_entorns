@@ -16,7 +16,10 @@
         "id": 123,
         "nom": "Nom Usuari",
         "email": "usuari@example.com",
-        "rol": "usuari"
+        "rol": "usuari",
+        "token": token,
+        "msg": "Usuari validat correctament",
+        "coderesponse": "1"
         }
     }
     ```
@@ -40,6 +43,9 @@
     "nom": "Nom Usuari",
     "email": "nou@example.com",
     "rol": "usuari"
+    "token": token,
+    "msg": "Usuari creat correctament",
+    "coderesponse": "1"
     }
     ```
 - Errors:
