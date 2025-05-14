@@ -66,6 +66,7 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Model E/R](diagrames/d_model_entitat_relacio.mermaid)
 
 ## BBDD Mysql
+![Estructura de la base de dades](diagrames/bbdd_clases.PNG)
 [BBDD Mysql](BBDD/cinema.sql) <br>
 [Inserts BBDD](BBDD/inserts.sql)
 
