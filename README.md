@@ -89,7 +89,7 @@ El projecte consisteix en una aplicació que permet als usuaris consultar, reser
 [Wireframe Pantalla principal](diagrames/d_wireframe_pprincipal.mermaid)
 
 ## Desenvolupament d'una part petita de codi
-[Servidor](webservice/server.py)
+[Servidor](webservice/server.py) <br>
 [Client](webservice/clientConsola.py)
 
 ## Cas d'ús detallat a escollir
